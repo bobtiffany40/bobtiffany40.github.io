@@ -3,16 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>A simple countdown</title> 
-  
-  // This webpage will countdown to a specified time of the day. It is designed for daily streaming services.
-  // The code was modified from the clock.html program created by github user sam0737 and all credit goes to him. 
-  //         https://gist.github.com/sam0737/a0ee8ca253fc5c84b2aa2ac018f7b8ad
-  // Parameter inputs include box style, time for countdown, and countdown printout format.
-  // For details on the "style" parameters, please see the setAttribute() documentation.
-  // The "time" parameter is a 6-digit number representing HHmmss in military format. You should set this to your daily streaming time.
-  // If you wish to have the counter reset every hour, simply set the HH to 00. Then it will countdown to zero, freeze for 10 minutes, and restart at 50 minutes.
-  // The "format" parameter should be set to either HH:mm:ss, H:mm:ss, HH:mm, H:mm, mm:ss, or m:ss, as any other formats will not make sense.
+  <title>A simple countdown</title>
   
 </head>
 
@@ -42,6 +33,14 @@ if (urlParams["bodyStyle"]) document.body.setAttribute("style", urlParams["bodyS
 var c;
 setInterval(
 c = function() {
+    // This webpage will countdown to a specified time of the day. It is designed for daily streaming services.
+    // The code was modified from the clock.html program created by github user sam0737 and all credit goes to him. 
+    //         https://gist.github.com/sam0737/a0ee8ca253fc5c84b2aa2ac018f7b8ad
+    // Parameter inputs include box style, time for countdown, and countdown printout format.
+    // For details on the "style" parameters, please see the setAttribute() documentation.
+    // The "time" parameter is a 6-digit number representing HHmmss in military format. You should set this to your daily streaming time.
+    // If you wish to have the counter reset every hour, simply set the HH to 00. Then it will countdown to zero, freeze for 10 minutes, and restart at 50 minutes.
+    // The "format" parameter should be set to either HH:mm:ss, H:mm:ss, HH:mm, H:mm, mm:ss, or m:ss, as any other formats will not make sense.
     var s = "20090801T" + urlParams["time"];
     var r = moment(s).diff(moment(s).startOf('day'), 'seconds');
     var m = moment().startOf('day');
