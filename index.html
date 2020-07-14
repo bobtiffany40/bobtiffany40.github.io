@@ -33,8 +33,9 @@ if (urlParams["bodyStyle"]) document.body.setAttribute("style", urlParams["bodyS
 var c;
 setInterval(
 c = function() {
-    var x = moment("20090801T090000");// + urlParams["time"]);
-    var y = moment("20090801T090000").startOf('day');
+    var s = "20090801T" + urlParams["time"];
+    var x = moment(s);
+    var y = moment(s).startOf('day');
     var r = x.diff(y, 'seconds');
     var m = moment().startOf('day');
     var q = moment().diff(m, 'seconds');
@@ -46,7 +47,7 @@ c = function() {
     //var d = moment().endOf('hour').diff(moment(), 'seconds');
     //var m = moment().startOf('day');
     //if (d < 3000) m = m.add(d, 'seconds');
-    output.innerText = "8 " + m.format(urlParams["format"] || '');
+    output.innerText = "9 " + m.format(urlParams["format"] || '');
 }, 1000);
 c();
 
