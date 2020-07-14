@@ -40,14 +40,14 @@ c = function() {
     var m = moment().startOf('day');
     var q = moment().diff(m, 'seconds');
     var d = r - q;
-    //if (r < 7200) d = r - moment().diff(moment().startOf('hour'), 'seconds');
-    if (d > 0) m = m.add(d, 'seconds');
-  
-    //var r = moment("20090801T090000");
-    //var d = moment().endOf('hour').diff(moment(), 'seconds');
-    //var m = moment().startOf('day');
-    //if (d < 3000) m = m.add(d, 'seconds');
-    output.innerText = "9 " + m.format(urlParams["format"] || '');
+    if (r < 3600) {
+        q = moment().diff(moment().startOf('hour'), 'seconds');
+        d = r - q;
+        if (d < 0) d = d + 3600;
+        if (d > 3000) d = 0;
+    }
+    if (d > 0) m.add(d, 'seconds');
+    output.innerText = m.format(urlParams["format"] || '');
 }, 1000);
 c();
 
