@@ -3,8 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>A simple countdown</title>
-
+  <title>A simple countdown</title> 
+  
+  // This webpage will countdown to a specified time of the day. It is designed for daily streaming services.
+  // The code was modified from the clock.html program created by github user sam0737. All credit goes to sam0737.
+  // Parameter inputs include box style, time for countdown, and countdown printout format.
+  // For details on the "style" parameters, please see the setAttribute() documentation.
+  // The "time" parameter is a 6-digit number representing HHmmss in military format. You should set this to your daily streaming time.
+  // If you wish to have the counter reset every hour, simply set the HH to 00. Then it will countdown to zero, freeze for 10 minutes, and restart at 50 minutes.
+  // The "format" parameter should be set to either HH:mm:ss, H:mm:ss, HH:mm, H:mm, mm:ss, or m:ss, as any other formats will not make sense.
+  
 </head>
 
 <body translate="no" >
@@ -12,7 +20,7 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
   <script>
-// https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+
 var urlParams;
 (function () {
     var match,
@@ -34,15 +42,11 @@ var c;
 setInterval(
 c = function() {
     var s = "20090801T" + urlParams["time"];
-    var x = moment(s);
-    var y = moment(s).startOf('day');
-    var r = x.diff(y, 'seconds');
+    var r = moment(s).diff(moment(s).startOf('day'), 'seconds');
     var m = moment().startOf('day');
-    var q = moment().diff(m, 'seconds');
-    var d = r - q;
+    var d = r - moment().diff(m, 'seconds');
     if (r < 3600) {
-        q = moment().diff(moment().startOf('hour'), 'seconds');
-        d = r - q;
+        d = r - moment().diff(moment().startOf('hour'), 'seconds');
         if (d < 0) d = d + 3600;
         if (d > 3000) d = 0;
     }
