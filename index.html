@@ -39,7 +39,7 @@ c = function() {
     var d = r - n.diff(n.startOf('day'), 'seconds');
     if (r < 7200) d = r - n.diff(n.startOf('hour'), 'seconds');
     m = n.startOf('day')
-    if (d < 0) m = m.add(d, 'seconds');
+    if (d > 0) m = m.add(d, 'seconds');
   
     //var r = moment("20090801T090000");
     //var d = moment().endOf('hour').diff(moment(), 'seconds');
