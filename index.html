@@ -34,9 +34,9 @@ var c;
 setInterval(
 c = function() {
     var d = moment().endOf('hour').diff(moment(), 'seconds');
-    var m = moment(["20090801T090000");
+    var m = moment("20090801T090000");
     if (d < 3000) m = m.add(d, 'seconds');
-    output.innerText = moment([2009, 8, 1, 9, 0, 0, 0]).add(d, 'seconds').format(urlParams["format"] || '');
+    output.innerText = m.format(urlParams["format"] || '');
 }, 1000);
 c();
 
