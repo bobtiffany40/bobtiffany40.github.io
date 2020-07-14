@@ -34,7 +34,8 @@ var c;
 setInterval(
 c = function() {
     var d = moment().endOf('hour').diff(moment(), 'seconds');
-    output.innerText = moment().startOf('day').add(d, 'seconds').format(urlParams["format"] || 'C');
+    if (d < 2700) output.innerText = moment([2009, 8, 1, 9, 0, 0, 0]).add(d, 'seconds').format(urlParams["format"] || 'C');
+    else output.innerText = "Test";
 }, 1000);
 c();
 
