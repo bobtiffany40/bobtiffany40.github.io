@@ -33,19 +33,20 @@ if (urlParams["bodyStyle"]) document.body.setAttribute("style", urlParams["bodyS
 var c;
 setInterval(
 c = function() {
-    //var x = moment([2009, 08, 01, 22, 30, 00, 000]);// + urlParams["time"]);
-    //var r = x.diff(x.startOf('hour'), 'seconds');
-    //var n = moment();
-    //var d = r - n.diff(n.startOf('day'), 'seconds');
-    //if (r < 7200) d = r - n.diff(n.startOf('hour'), 'seconds');
-    //var m = n.startOf('day')
-    //if (d > 0) m = m.add(d, 'seconds');
-  
-    var r = moment("20090801T090000");
-    var d = moment().endOf('hour').diff(moment(), 'seconds');
+    var x = moment([2009, 08, 01, 22, 30, 00, 000]);// + urlParams["time"]);
+    var y = moment([2009, 08, 01, 22, 30, 00, 000]).startOf('day');
+    var r = x.diff(y, 'seconds');
     var m = moment().startOf('day');
-    if (d < 3000) m = m.add(d, 'seconds');
-    output.innerText = "6 " + m.format(urlParams["format"] || '');
+    var q = moment().diff(m, 'seconds');
+    var d = r - q;
+    //if (r < 7200) d = r - moment().diff(moment().startOf('hour'), 'seconds');
+    if (d > 0) m = m.add(d, 'seconds');
+  
+    //var r = moment("20090801T090000");
+    //var d = moment().endOf('hour').diff(moment(), 'seconds');
+    //var m = moment().startOf('day');
+    //if (d < 3000) m = m.add(d, 'seconds');
+    output.innerText = "7 " + m.format(urlParams["format"] || '');
 }, 1000);
 c();
 
